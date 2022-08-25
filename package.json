@@ -1,9 +1,18 @@
 {
   "private": true,
+  
+    "name": "twitter-clone",
+    "description": "Build scripts for Heroku",
+    "engines": {
+      "node": ">= 14"
+    },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "next build npm install --prefix client && npm run build --prefix client",
+    "start": "next start",
+    "clean": "rm -rf public",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
