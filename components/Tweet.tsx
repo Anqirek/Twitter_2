@@ -55,7 +55,7 @@ function Tweet({tweet}: Props) {
 
       setInput('')
       setCommentBox(false)
-      refreshComments()
+      refreshComments();
   }
 
 
